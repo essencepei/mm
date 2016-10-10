@@ -7,8 +7,10 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/fristController")
 public class FristController {
+	
 	@RequestMapping("/index.do")
 	public ModelAndView page(){
+		System.out.println("????");
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("index");
 		return mav;
