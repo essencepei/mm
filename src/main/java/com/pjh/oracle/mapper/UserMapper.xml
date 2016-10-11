@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pjh.dao.UserMapper">
+    <!-- 查询所有person -->  
+    <select id="queryAllUsers" resultType="User" >  
+         SELECT * from pro01_user  
+    </select>
+    <insert id="insert" >
+    INSERT INTO pro01_user SET NAME =#{name},sex=#{sex}
+    </insert>
+    
+    <update id="update" >
+    update pro01_user set name=#{name},sex=#{sex} where id=#{id}
+    </update>
+</mapper>
