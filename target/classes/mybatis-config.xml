@@ -5,10 +5,10 @@
       
 <configuration>  
     <!-- 全局别名设置，在映射文件中只需写别名，而不必写出整个类路径  -->  
-    <!--<typeAliases>    
-         <typeAlias type="com.huawei.model.Person" alias="Person"/>  
+    <typeAliases>    
+         <typeAlias type="com.pjh.model.User" alias="User"/>  
     </typeAliases>     
        <mappers>  
-        <mapper resource="com/huawei/mapping/PersonMapper.xml" />  
-    </mappers> -->
+        <mapper resource="com/pjh/oracle/mapper/UserMapper.xml" />  
+    </mappers> 
 </configuration>
