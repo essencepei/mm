@@ -6,7 +6,7 @@
          SELECT * from pro01_user  
     </select>
     <insert id="insert" >
-    INSERT INTO pro01_user SET NAME =#{name},sex=#{sex}
+    INSERT INTO pro01_user values(#{id},#{name},#{sex},#{telehone},#{idCord})
     </insert>
     
     <update id="update" >

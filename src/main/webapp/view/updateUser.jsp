@@ -8,7 +8,7 @@
         <title>person list</title>
     </head>
     <body>
-    	<form action="/pro01/userController/updateUser.do" method="post">
+    	<form action="/pro01/userController/updateUser.do" method="post" >
 	        <table>
 	        	<tr>
 	                <td>id</td>

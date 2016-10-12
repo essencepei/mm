@@ -8,18 +8,27 @@
         <title>person list</title>
     </head>
     <body>
-    	<form action="/pro01/userController/addUser.do" method="post">
-	        <table>
-	            <tr>
-	                <td>姓名:</td>
-	                <td><input name="name"/></td>
-	            </tr>
-	            <tr>
-	                <td>性别：</td>
-	                <td><input name="sex"/></td>
-	            </tr>
-	        </table>
-	        <input type="submit" value="提交"/>
-    	</form>
+    	<form id="addUserForm" method="post">
+	    	<table cellpadding="5">
+	    		<tr>
+	    			<td>id:</td>
+	    			<td><input class="easyui-textbox" type="text" name="id" data-options="required:true"></input></td>
+	    			<td>姓名:</td>
+	    			<td><input class="easyui-textbox" type="text" name="name" data-options="required:true"></input></td>
+	    		</tr>
+	    		<tr>
+	    			<td>性别:</td>
+	    			<td><input class="easyui-textbox" type="text" name="sex" data-options="required:true"></input></td>
+	    			<td>电话:</td>
+	    			<td><input class="easyui-textbox" name="telehone" data-options="required:true" ></input></td>
+	    		</tr>
+	    		<tr>
+	    			<td>身份证:</td>
+	    			<td>
+	    				<input class="easyui-textbox" name="idCord" data-options="required:true"></input>
+	    			</td>
+	    		</tr>
+	    	</table>
+	    </form>
     </body>
 </html>
