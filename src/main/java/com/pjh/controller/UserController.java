@@ -1,18 +1,22 @@
 package com.pjh.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import com.pjh.model.GridView;
 import com.pjh.model.User;
 import com.pjh.serviceI.IUserService;
+import com.pjh.util.PageUtil;
 
 @Controller
 @RequestMapping("/userController")
@@ -32,9 +36,10 @@ public class UserController {
 	
 	@RequestMapping("/userIndexForEsayUi.do")
 	@ResponseBody
-	public List<User> queryUsersForEsayUi(){
+	public GridView queryUsersForEsayUi(@RequestParam Map<String,Object> param){
+		PageUtil.startPage(param);
 		List<User> users = userService.loadUser();
-		return users;
+		return new GridView(users,PageUtil.getTotal());
 		
 	}
 	
