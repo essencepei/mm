@@ -1,10 +1,6 @@
 package com.pjh.model;
 
 import java.util.List;
-import java.util.Map;
-
-import com.github.pagehelper.Page;
-import com.github.pagehelper.PageHelper;
 
 public class GridView {
 	private List<?> rows;
