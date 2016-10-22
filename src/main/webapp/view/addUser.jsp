@@ -9,10 +9,13 @@
     </head>
     <body>
     	<form id="addUserForm" method="post">
+    		<input id="deptId" name="deptId" type="hidden"></input>
+    		<input  name="id" type="hidden"></input>
 	    	<table cellpadding="5">
 	    		<tr>
-	    			<td>id:</td>
+	    			<!-- <td>id:</td>
 	    			<td><input class="easyui-textbox" type="text" name="id" data-options="required:true"></input></td>
+	    			 -->
 	    			<td>姓名:</td>
 	    			<td><input class="easyui-textbox" type="text" name="name" data-options="required:true"></input></td>
 	    		</tr>

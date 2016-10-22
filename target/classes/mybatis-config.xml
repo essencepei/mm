@@ -7,6 +7,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
     <!-- 全局别名设置，在映射文件中只需写别名，而不必写出整个类路径  -->  
     <typeAliases>    
          <typeAlias type="com.pjh.model.User" alias="User"/>  
+          <typeAlias type="com.pjh.model.Dept" alias="Dept"/>  
     </typeAliases>    
     
     <plugins>  
@@ -41,7 +42,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
     </plugins>
      
        <mappers>  
-        <mapper resource="com/pjh/oracle/mapper/UserMapper.xml" />  
+        <!-- <mapper resource="com/pjh/oracle/mapper/*.xml" />   -->
     </mappers> 
     
 </configuration>

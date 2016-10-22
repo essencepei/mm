@@ -1,20 +1,21 @@
 package com.pjh.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.github.pagehelper.Page;
-import com.github.pagehelper.PageHelper;
+import com.pjh.model.Dept;
 import com.pjh.model.GridView;
+import com.pjh.model.Tree;
 import com.pjh.model.User;
+import com.pjh.serviceI.IDeptService;
 import com.pjh.serviceI.IUserService;
 import com.pjh.util.PageUtil;
 
@@ -22,23 +23,26 @@ import com.pjh.util.PageUtil;
 @RequestMapping("/userController")
 public class UserController {
 
-
-	private IUserService userService;	
-	
-	public IUserService getUserService() {
-		return userService;
+	@RequestMapping("/deptTree.do")
+	@ResponseBody
+	public List<Tree>  queryDeptTreeForEsayUi(@RequestParam Map<String,Object> param){
+		if(param.get("id")==null){
+			param.put("id", "0");
+		}
+		List<Dept> depts = deptService.loadDept(param);
+		List<Tree> trees = new ArrayList<Tree>();
+		for(Dept dept:depts){
+			trees.add(dept.getTree());
+		}
+		return trees;
+		
 	}
-	@Autowired
-	public void setUserService(IUserService userService) {
-		this.userService = userService;
-	}
-
 	
 	@RequestMapping("/userIndexForEsayUi.do")
 	@ResponseBody
 	public GridView queryUsersForEsayUi(@RequestParam Map<String,Object> param){
 		PageUtil.startPage(param);
-		List<User> users = userService.loadUser();
+		List<User> users = userService.loadUser(param);
 		return new GridView(users,PageUtil.getTotal());
 		
 	}
@@ -46,17 +50,21 @@ public class UserController {
 	@RequestMapping("/userIndex.do")
 	public ModelAndView queryUsers(){
 		ModelAndView mav = new ModelAndView();
-		List<User> users = userService.loadUser();
-		
-		mav.addObject("users", users);
+//		List<User> users = userService.loadUser();
+//		
+//		mav.addObject("users", users);
 		mav.setViewName("userIndex");
 		return mav;
 		
 	}
 	
-	@RequestMapping("/addUser.do")
+	@RequestMapping("/addOrUpdateUser.do")
 	public User addUser(User user){
-		userService.addUser(user);
+		if(user.getId()!=null&&!user.getId().isEmpty()){
+			userService.updateUser(user);
+		}else{
+			userService.addUser(user);
+		}
 		return user;
 	}
 	
@@ -68,9 +76,29 @@ public class UserController {
 	
 	@RequestMapping("/test.do")
 	@ResponseBody
-	public List<User>  test(){
-		List<User> users = userService.loadUser();
+	public List<User>  test(@RequestParam Map<String,Object> param){
+		List<User> users = userService.loadUser(param);
 		
 		return users;
+	}
+	
+	private IDeptService deptService;
+	private IUserService userService;	
+	
+	
+	
+	public IDeptService getDeptService() {
+		return deptService;
+	}
+	@Autowired
+	public void setDeptService(IDeptService deptService) {
+		this.deptService = deptService;
+	}
+	public IUserService getUserService() {
+		return userService;
+	}
+	@Autowired
+	public void setUserService(IUserService userService) {
+		this.userService = userService;
 	}
 }

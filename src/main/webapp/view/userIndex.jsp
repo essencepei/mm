@@ -17,8 +17,7 @@
     <body>
     	<div class="easyui-layout" style="width:100%px;height:500px;">
 			<div region="west" split="true" title="Navigator" style="width:20%;">
-				
-				
+				<ul id="deptTree" class="easyui-tree" data-options="url:'/pro01/userController/deptTree.do',onSelect:selectDept"></ul>
 			</div>
 			<div id="content" region="center" title="Language" style="padding:5px;">
 				<table id="userGrid"class="easyui-datagrid" title="Basic DataGrid" style="width:100%;height:100%"
@@ -43,7 +42,7 @@
 				</table>
 				<div id="tb">
 					<a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="add()">新增</a>
-					<a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="javascript:alert('Cut')">编辑</a>
+					<a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="edit()">编辑</a>
 					<a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="javascript:alert('Save')">删除</a>
 				</div>
 			</div>

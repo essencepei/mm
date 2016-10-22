@@ -14,6 +14,7 @@ public class PageUtil {
 			int pageSize = Integer.valueOf(param.get("rows").toString());
 			page = PageHelper.startPage(pageNum,pageSize,true);
 		}
+		
 	}
 	
 	public static Long getTotal(){

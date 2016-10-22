@@ -6,6 +6,14 @@ public class User {
 	private String sex;
 	private String telehone;
 	private String idCord;
+	private String deptId;
+	
+	public String getDeptId() {
+		return deptId;
+	}
+	public void setDeptId(String deptId) {
+		this.deptId = deptId;
+	}
 	public String getId() {
 		return id;
 	}

@@ -4,9 +4,15 @@
     <!-- 查询所有person -->  
     <select id="queryAllUsers" resultType="User" >  
          SELECT * from pro01_user  
+         <where>
+         	<if test="deptId!=null and deptId!=''">and deptId =#{deptId}</if>
+         </where>
     </select>
-    <insert id="insert" >
-    INSERT INTO pro01_user values(#{id},#{name},#{sex},#{telehone},#{idCord})
+    <insert id="insert"  >
+     <selectKey keyProperty="id" resultType="String" order="BEFORE">  
+        select  replace(uuid(),'-','')   from dual  
+    </selectKey>  
+    INSERT INTO pro01_user(id,name,sex,telehone,idCord,deptId) values(#{id},#{name},#{sex},#{telehone},#{idCord},#{deptId})
     </insert>
     
     <update id="update" >

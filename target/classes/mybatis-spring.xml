@@ -45,6 +45,11 @@
         <property name="configLocation" value="classpath:mybatis-config.xml" /> 
         <property name="dataSource" ref="dataSource" />
         <!-- 映射文件路径 -->
+        <property name="mapperLocations">  
+            <list>  
+                <value>classpath:com/pjh/oracle/mapper/*Mapper.xml</value>  
+            </list>  
+        </property>  
         <!--  <property name="mapperLocations" value="classpath:com/pjh/oracle/mapper/*.xml" />-->
     </bean>
 
