@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pjh.dao.PageMapper">
+    <!-- 查询所有tree -->  
+    <select id="querypage" resultType="Page" >  
+         select * from page 
+         <where>
+         	<if test = "id!='' and id !=null" > and id = #{id}</if>
+         </where>
+    </select>
+</mapper>

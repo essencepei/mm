@@ -35,7 +35,6 @@ public class UserController {
 			trees.add(dept.getTree());
 		}
 		return trees;
-		
 	}
 	
 	@RequestMapping("/userIndexForEsayUi.do")
@@ -44,7 +43,6 @@ public class UserController {
 		PageUtil.startPage(param);
 		List<User> users = userService.loadUser(param);
 		return new GridView(users,PageUtil.getTotal());
-		
 	}
 	
 	@RequestMapping("/userIndex.do")
@@ -59,6 +57,7 @@ public class UserController {
 	}
 	
 	@RequestMapping("/addOrUpdateUser.do")
+	@ResponseBody
 	public User addUser(User user){
 		if(user.getId()!=null&&!user.getId().isEmpty()){
 			userService.updateUser(user);
@@ -78,25 +77,25 @@ public class UserController {
 	@ResponseBody
 	public List<User>  test(@RequestParam Map<String,Object> param){
 		List<User> users = userService.loadUser(param);
-		
 		return users;
 	}
 	
 	private IDeptService deptService;
 	private IUserService userService;	
 	
-	
-	
 	public IDeptService getDeptService() {
 		return deptService;
 	}
+	
 	@Autowired
 	public void setDeptService(IDeptService deptService) {
 		this.deptService = deptService;
 	}
+	
 	public IUserService getUserService() {
 		return userService;
 	}
+	
 	@Autowired
 	public void setUserService(IUserService userService) {
 		this.userService = userService;
