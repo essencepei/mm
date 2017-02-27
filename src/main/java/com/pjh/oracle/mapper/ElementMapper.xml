@@ -2,10 +2,10 @@
  <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.pjh.dao.ElementMapper">
     <!-- 查询所有tree -->  
-    <select id="queryelement" resultType="Page" >  
+    <select id="queryelement" resultType="Element" >  
          select * from element 
-         <where>
-         	<if test = "id!='' and id !=null" > and id = #{id}</if>
+          <where>
+         	<if test = "id!='' and id !=null" > and pageid = #{id}</if>
          </where>
     </select>
 </mapper>

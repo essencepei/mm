@@ -29,7 +29,7 @@
 					">
 							<thead>
 								<tr>
-									<th data-options="field:'id',width:100">ID</th>
+									<th data-options="field:'id',width:20">ID</th>
 									<th data-options="field:'url',width:100">url</th>
 									<th data-options="field:'cname',width:100,align:'right'">页面名称</th>
 									<th data-options="field:'ename',width:100,align:'right'">英文名称</th>
@@ -44,16 +44,17 @@
 					data-options="singleSelect:true,
 					collapsible:true,
 					fitColumns:true,
+
 					method:'get',
 					rownumbers:true, 
 					pagination:true,
 					toolbar:'#tb'
 					">
+					<!-- 					onClickCell:onClickCell, -->
 							<thead>
 								<tr>
-									<th data-options="field:'id',width:100">ID</th>
-									<th data-options="field:'pageId',width:100">页面id</th>
-									<th data-options="field:'element',width:100,align:'right'">元素名称</th>
+									<th data-options="field:'id',width:20">ID</th>
+									<th data-options="field:'element',width:50,align:'right'">元素名称</th>
 									<th data-options="field:'findByKey',width:100,align:'right'">key</th>
 									<th data-options="field:'findByValue',width:100,align:'right'">值</th>
 								</tr>
@@ -64,6 +65,7 @@
 					<a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="add()">新增</a>
 					<a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="edit()">编辑</a>
 					<a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="javascript:alert('Save')">删除</a>
+					<a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="accept()">保存</a>
 				</div>
 			</div>				
 		</div>

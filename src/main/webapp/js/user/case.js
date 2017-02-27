@@ -1,13 +1,23 @@
 //选择页面列显示元素列表
 function selectRow(rowIndex, rowData){
-	$('#elementGrid').datagrid({
+	$('#caseInfoGrid').datagrid({
 		queryParams: {
 			id: rowData.id
 		},
-		url:"/pro01/pageController/elementData.do"
+		url:"/pro01/caseController/CaseInfoByCaseId.do"
 	});
 }
 
+
+//选中后逻辑,选中后添加到测试用例集合
+function onCheck(rowIndex,rowData){
+	debugger;
+	
+}
+
+function go(){
+	debugger;
+}
 //点击cell编辑
 
 $.extend($.fn.datagrid.methods, {

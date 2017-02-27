@@ -2,7 +2,6 @@ package com.pjh.dao;
 
 import java.util.List;
 import java.util.Map;
-
 import com.pjh.model.User;
 
 public interface UserMapper {

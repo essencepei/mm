@@ -8,7 +8,11 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
     <typeAliases>    
          <typeAlias type="com.pjh.model.User" alias="User"/>  
           <typeAlias type="com.pjh.model.Dept" alias="Dept"/>
-          <typeAlias type="com.pjh.model.Page" alias="Page"/>  
+          <typeAlias type="com.pjh.model.Page" alias="Page"/>
+          <typeAlias type="com.pjh.model.Element" alias="Element"/>
+           <typeAlias type="com.pjh.model.Case" alias="Case"/>
+           <typeAlias type="com.pjh.model.CaseInfo" alias="CaseInfo"/>
+           <typeAlias type="com.pjh.model.Action" alias="Action"/>               
     </typeAliases>    
     <plugins>  
         <!-- com.github.pagehelper为PageHelper类所在包名 -->  
