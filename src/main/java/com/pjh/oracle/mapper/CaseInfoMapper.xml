@@ -5,6 +5,7 @@
          SELECT * FROM `caseinfo` 
            <where>
          	<if test = "id!='' and id !=null" > and caseid = #{id}</if>
+         	<if test = "element!='' and element !=null" > and element = #{element}</if>
          </where>
     </select>
 </mapper>

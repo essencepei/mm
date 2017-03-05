@@ -1,8 +1,10 @@
 package com.pjh.controller;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.openqa.selenium.WebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,12 +14,18 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.pjh.model.Element;
 import com.pjh.model.Page;
+import com.pjh.serviceI.ICaseInfoService;
 import com.pjh.serviceI.IElementService;
 import com.pjh.serviceI.IPageService;
+import com.pjh.util.DriverFactory;
+import com.pjh.util.createPage;
 
 @Controller
 @RequestMapping("/pageController")
 public class PageController {
+	
+	@Autowired
+	ICaseInfoService caseInfoService;
 	
 	@Autowired
 	IPageService pageService ;
@@ -43,4 +51,18 @@ public class PageController {
 	public List<Element> elementData(@RequestParam Map<String,Object> param){
 		return elementService.loadElement(param);
 	}
+	
+	@RequestMapping("/test.do")
+	@ResponseBody
+	public void test(@RequestParam Map<String,Object> param){
+		WebDriver driver = null;
+		driver = DriverFactory.getChromeDriver();
+		driver.get("http://order.lbd99.com/scm/web/view/login.jsp");
+		createPage cp = new createPage(driver,elementService,caseInfoService);
+		Map<String,Object> param1 = new HashMap<String,Object>();
+		param.put("id", "1");
+		List<Map<String,Object>> ss = cp.locator(param1);
+		System.out.println(ss);
+	}
+	
 }
