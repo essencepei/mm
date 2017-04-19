@@ -4,6 +4,10 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-config.dtd"> 
       
 <configuration>  
+<settings>
+        <!-- 打印查询语句 -->
+        <setting name="logImpl" value="STDOUT_LOGGING" />
+    </settings>
     <!-- 全局别名设置，在映射文件中只需写别名，而不必写出整个类路径  -->  
     <typeAliases>    
          <typeAlias type="com.pjh.model.User" alias="User"/>  
