@@ -10,4 +10,6 @@ public interface ICaseInfoService {
 	List<CaseInfo> loadCaseInfo(Map<String,Object> param);
 
 	List<CaseInfo> suiteCaseInfo(Map<String, Object> param);
+	List<CaseInfo> queryPageIdByCaseId(int id);
+	
 }

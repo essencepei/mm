@@ -19,6 +19,7 @@ public class CaseInfoServiceImpl implements ICaseInfoService{
 	public CaseInfoMapper getCaseInfoMapper() {
 		return caseInfoMapper;
 	}
+	
 	@Autowired
 	public void setCaseInfoMapper(CaseInfoMapper caseInfoMapper) {
 		this.caseInfoMapper = caseInfoMapper;
@@ -28,9 +29,14 @@ public class CaseInfoServiceImpl implements ICaseInfoService{
 		return caseInfoMapper.querycaseinfo(param);
 	}
 	
+	
+	@Override
+	public List<CaseInfo> queryPageIdByCaseId(int id) {
+		return caseInfoMapper.queryPageIdByCaseId(id);
+	}
+	
 	//通过选择的测试用例，把测试步骤load进来进行解析
 	public List<CaseInfo> suiteCaseInfo(Map<String, Object> param) {
-		// TODO Auto-generated method stub
 		return caseInfoMapper.querycaseinfo(param);
 	}
 

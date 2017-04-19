@@ -11,4 +11,7 @@ public interface ElementMapper {
 	
 	public List<Element> queryelement();
 	
+	//通过元素名称查询并返回元素
+	public Element queryElementByName(String pageId,String elementName);
+	
 }

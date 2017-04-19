@@ -6,6 +6,14 @@
          select * from element 
           <where>
          	<if test = "id!='' and id !=null" > and pageid = #{id}</if>
+         	<if test = "element!='' and element !=null" > and element = #{element}</if>
+         </where>
+    </select>
+    
+     <select id="queryElementByName" resultType="Element" >  
+         select * from element 
+          <where>
+         	<if test = "id!='' and id !=null" > and pageid = #{pageId} and element=#{elementName}</if>
          </where>
     </select>
 </mapper>

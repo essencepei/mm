@@ -6,6 +6,20 @@
            <where>
          	<if test = "id!='' and id !=null" > and caseid = #{id}</if>
          	<if test = "element!='' and element !=null" > and element = #{element}</if>
+         	<if test = "element!='' and element !=null" >  
+         	and  caseid in 
+         	<foreach collection="caseId" item="caseId" open="(" close=")" separator=",">  
+   					#{caseId}  
+  			</foreach></if>
+         	
+         </where>
+    </select>
+    
+    
+        <select id="queryPageIdByCaseId" resultType="CaseInfo" >  
+        select  DISTINCT 'pageid' from 'caseinfo'
+           <where>
+         	<if test = "id!='' and id !=null" > and caseid = #{id}</if>
          </where>
     </select>
 </mapper>

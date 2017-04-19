@@ -52,17 +52,4 @@ public class PageController {
 		return elementService.loadElement(param);
 	}
 	
-	@RequestMapping("/test.do")
-	@ResponseBody
-	public void test(@RequestParam Map<String,Object> param){
-		WebDriver driver = null;
-		driver = DriverFactory.getChromeDriver();
-		driver.get("http://order.lbd99.com/scm/web/view/login.jsp");
-		createPage cp = new createPage(driver,elementService,caseInfoService);
-		Map<String,Object> param1 = new HashMap<String,Object>();
-		param.put("id", "1");
-		List<Map<String,Object>> ss = cp.locator(param1);
-		System.out.println(ss);
-	}
-	
 }

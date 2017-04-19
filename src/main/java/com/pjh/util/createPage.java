@@ -57,18 +57,17 @@ public class createPage {
 		
 	}
 	
-	public List<Map<String,Object>> locator(Map<String,Object> param) {
+	public List<Map<String,Object>> locator(List<CaseInfo> caseInfos) {
 		List<Map<String,Object>> records = new ArrayList<Map<String,Object>>();
-		List<Element> pageElements = elmentservice.loadElement(param);
 		WebElement webElement = null;
-		for(Element element:pageElements){
+		Element  element = null;
+		Map<String,Object> param = new HashMap<String,Object>();
+		for(CaseInfo caseInfo:caseInfos){
+			param.put("element", caseInfo.getElement());			
+			element = elmentservice.getElement(param);
 			webElement = this.parseElemnt(element);
-			param.put("element", element.getElement());
-			List<CaseInfo> caseInfos = caseInfoService.loadCaseInfo(param);
 			//操作方法的解析
-			for(CaseInfo caseInfo:caseInfos){
-				records.add(this.parseAction(webElement,caseInfo));
-			}
+			records.add(this.parseAction(webElement,caseInfo));
 		}
 		
 		return records;
