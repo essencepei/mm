@@ -16,7 +16,26 @@ function onCheck(rowIndex,rowData){
 }
 
 function go(){
+	
+	//点击运行的时候将caseInfoGrid表中的数据即测试用例传到后台\
+	var selects = $('#caseGrid').datagrid('getSelections');
+	var ids ='';
+	for(var i=0;i< selects.length;i++){
+		if(i!=(selects.length-1)){
+			ids=ids+selects[i].id+',';
+		}else{
+			ids=ids+selects[i].id;
+		}
+	}
+	if(selects!=null&&selects.length!=0){
+		$.post("/pro01/caseController/test.do",{caseIds:ids},function(data){
+			
+		});
+	}else{
+		$.messager.alert('提示','请至少选择一条记录!');
+	}
 	debugger;
+	
 }
 //点击cell编辑
 

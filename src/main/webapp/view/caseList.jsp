@@ -24,7 +24,7 @@
 				</div>
     <div id="content" region="north" style="padding:5px;height:300px">
     <table id="caseGrid"class="easyui-datagrid" title="用例" style="width:100%;height:100%"
-					data-options="singleSelect:true,
+					data-options="singleSelect:false,
 					collapsible:true,
 					fitColumns:true,
 					onSelect:selectRow,
