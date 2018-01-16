@@ -1,4 +1,4 @@
-package com.pjh.ui.controller;
+package com.pjh.controller;
 
 import java.util.ArrayList;
 import java.util.List;
