@@ -68,7 +68,9 @@ public class DriverFactory {
 	}
 
 	public static WebDriver getChromeDriver() {
-		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\WebDriver\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "E:\\workspace\\mm_local\\WebDriver\\chromedriver.exe");
+//		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\WebDriver\\chromedriver.exe");
+//		E:\workspace\mm_local\WebDriver\chromedriver.exe
 		WebDriver driver = new ChromeDriver();
 		return driver;
 	}

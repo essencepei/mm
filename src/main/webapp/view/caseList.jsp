@@ -13,8 +13,7 @@
 		<script type="text/javascript" src="../esayui/locale/easyui-lang-zh_CN.js"></script>
 		<script type="text/javascript" src="../js/user/case.js"></script>
     </head>
-    <body>
-    <div class="easyui-layout" style="width:100%px;height:600px;">
+    <body class="easyui-layout">
     <div id="tb1">
 					<a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="addcase()">新增</a>
 					<a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editcase()">编辑</a>
@@ -76,7 +75,6 @@
 					<a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="accept()">保存</a>
 				</div>
 			</div>				
-		</div>
 		
     </body>
 </html>
