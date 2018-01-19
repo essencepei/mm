@@ -13,6 +13,7 @@
 
     <!-- 自动注入 -->
     <context:component-scan base-package="com.pjh.service.impl" />
+    <context:component-scan base-package="com.api.autotest.impl" />
     <!-- 加载properties文件  -->
     <bean id="configProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
         <property name="locations">

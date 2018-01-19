@@ -1,4 +1,35 @@
-1、mybatis-spring.xml
-2、mysqldb.properties
-3、E:\workspace\mm_local\WebDriver\chromedriver.exe
-4、
+1、mybatis-spring的数据库配置
+mybatis-spring.xml
+
+2、修改本地数据库的配置
+mysqldb.properties
+
+3、driver所在的位置
+E:\workspace\mm_local\WebDriver\chromedriver.exe
+
+4、分包需要改动的配置文件  mybatis-spring.xml spring-mvc.xml spring.xml
+  
+mybatis-spring.xml
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="configLocation" value="classpath:mybatis-config.xml" /> 
+        <property name="dataSource" ref="dataSource" />
+        <!-- 映射文件路径 -->
+        <property name="mapperLocations">  
+            <list>  
+                <value>classpath:com/pjh/oracle/mapper/*Mapper.xml</value>  
+                <value>classpath:com/api/autotest/mapper/*Mapper.xml</value> 
+            </list>  
+        </property>  
+        <!--  <property name="mapperLocations" value="classpath:com/pjh/oracle/mapper/*.xml" />-->
+    </bean>
+
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.pjh.dao,com.api.autotest" />
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+    </bean>
+    
+spring-mvc.xml
+<context:component-scan base-package="com.pjh.controller" />
+ 
+spring.xml
+<context:component-scan base-package="com.api.autotest.impl" />

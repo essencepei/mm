@@ -69,10 +69,10 @@
 				</table>
 
 				<div id="tb">
-					<a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="add()">新增</a>
-					<a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="edit()">编辑</a>
-					<a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="javascript:alert('Save')">删除</a>
-					<a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="accept()">保存</a>
+					<a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="addstep()">新增</a>
+					<a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editstep()">编辑</a>
+					<a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="savestep()">删除</a>
+					<a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="acceptstep()">保存</a>
 				</div>
 			</div>				
 		

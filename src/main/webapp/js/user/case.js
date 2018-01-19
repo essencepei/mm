@@ -82,12 +82,31 @@ function onClickCell(index, field){
 }
 
 //新增
-function add(){
-/*	var selectedTree = $('#deptTree').tree('getSelected');
-	if(!selectedTree){
-		$.messager.alert('提示','请先选择组织结构！');
-		return;
-	}*/
+function addcase(){
+	$('#selfDialog').dialog({
+	    title: 'My Dialog',
+	    width: 500,
+	    height: 300,
+	    closed: false,
+	    cache: false,
+	    href: '/pro01/view/addUser.jsp',
+	    onLoad:function(){
+	    	$('#deptId').val(selectedTree.id);
+	    },
+	    modal: true,
+	    buttons:[{
+			text:'保存',
+			handler:addOrUpdateSave
+		},{
+			text:'关闭',
+			handler:function(){
+				$('#selfDialog').dialog('close');
+			}
+		}]
+	});
+}
+
+function addstep(){
 	$('#selfDialog').dialog({
 	    title: 'My Dialog',
 	    width: 500,

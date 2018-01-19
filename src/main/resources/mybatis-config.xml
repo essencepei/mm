@@ -16,7 +16,9 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
           <typeAlias type="com.pjh.model.Element" alias="Element"/>
            <typeAlias type="com.pjh.model.Case" alias="Case"/>
            <typeAlias type="com.pjh.model.CaseInfo" alias="CaseInfo"/>
-           <typeAlias type="com.pjh.model.Action" alias="Action"/>               
+           <typeAlias type="com.pjh.model.Action" alias="Action"/>
+           <typeAlias type="com.api.autotest.model.apiVO" alias="Api"/>       
+           <typeAlias type="com.api.autotest.model.Suite" alias="Suite"/>                
     </typeAliases>    
     <plugins>  
         <!-- com.github.pagehelper为PageHelper类所在包名 -->  
@@ -49,7 +51,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         </plugin>  
     </plugins>
      
-       <mappers>  
+    <mappers>  
         <!-- <mapper resource="com/pjh/oracle/mapper/*.xml" />   -->
     </mappers> 
     
