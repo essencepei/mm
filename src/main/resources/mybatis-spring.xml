@@ -15,9 +15,9 @@
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
         <!-- 基本属性 url、user、password -->  
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />  
-        <property name="url" value="jdbc:mysql://localhost:3306/tttest?useUnicode=true&amp;characterEncoding=utf8" />  
-        <property name="username" value="mm" />  
-        <property name="password" value="123456" />  
+        <property name="url" value="jdbc:mysql://localhost:3306/test?useUnicode=true&amp;characterEncoding=utf8" />  
+        <property name="username" value="root" />  
+        <property name="password" value="" />  
         <property name="initialSize" value="1" />  
         <property name="minIdle" value="1" />   
         <property name="maxActive" value="20" />  
@@ -48,13 +48,14 @@
         <property name="mapperLocations">  
             <list>  
                 <value>classpath:com/pjh/oracle/mapper/*Mapper.xml</value>  
+                <value>classpath:com/api/autotest/mapper/*Mapper.xml</value> 
             </list>  
         </property>  
         <!--  <property name="mapperLocations" value="classpath:com/pjh/oracle/mapper/*.xml" />-->
     </bean>
 
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.pjh.dao" />
+        <property name="basePackage" value="com.pjh.dao,com.api.autotest.*" />
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
     </bean>
 
