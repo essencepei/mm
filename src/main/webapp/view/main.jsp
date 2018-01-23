@@ -17,8 +17,8 @@
     <div data-options="region:'west',title:'West',split:true" style="width:20%;">
     	<div class="easyui-accordion" >
 		<div title="接口" data-options="iconCls:'icon-ok'" style="overflow:auto;padding:10px;">
-			<a href="javascript:void(0);" onclick="openIf('/urlController/urlList.do');"><p>接口地址管理</p></a>
-			<a href="javascript:void(0);" onclick="openIf('/urlController/urlList.do');"><p>查看接口</p></a>
+			<a href="javascript:void(0);" onclick="openIf('/SuiteController/urlList.do');"><p>接口地址管理</p></a>
+			<a href="javascript:void(0);" onclick="openIf('/SuiteController/urlList.do');"><p>查看接口</p></a>
 		</div>
 		
 		<div title="接口测试用例管理" data-options="iconCls:'icon-ok'" style="overflow:auto;padding:10px;">

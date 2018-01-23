@@ -18,8 +18,7 @@
 					<a id="btn1" href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="addsuite()">新增</a>
 					<a id="btn2" href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editsuite()">编辑</a>
 					<a id="btn3" href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="delSuite()">删除</a>
-					<a id="btn4" href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="savesuite()">保存</a>
-					<a id="btn5" href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="excuteurl()">excute</a>
+					<a id="btn4" href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="excuteurl()">excute</a>
 					
 	</div>
     <div id="content" region="north" style="padding:5px;height:500px">
@@ -27,7 +26,7 @@
 				data-options="singleSelect:false,
 					collapsible:true,
 					fitColumns:true,
-					url:'/pro01/urlController/urlData.do',
+					url:'/pro01/SuiteController/urlData.do',
 					rownumbers:true, 
 					pagination:true,
 					toolbar:'#tb1'	">
