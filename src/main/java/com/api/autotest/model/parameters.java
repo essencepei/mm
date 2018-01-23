@@ -1,24 +1,39 @@
 package com.api.autotest.model;
 
 public class parameters {
-	private int id;
-	private int api_id;
+	private Integer id;
+	private Integer api_id;
 	private String parameter;
 	private String isrequired;
 	private String parametertype;
 	private String datatype;
 	private String description;
 	
-	public int getId() {
+	public parameters() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public parameters(Integer id, Integer api_id, String parameter, String isrequired, String parametertype,
+			String datatype, String description) {
+		super();
+		this.id = id;
+		this.api_id = api_id;
+		this.parameter = parameter;
+		this.isrequired = isrequired;
+		this.parametertype = parametertype;
+		this.datatype = datatype;
+		this.description = description;
+	}
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
-	public int getApi_id() {
+	public Integer getApi_id() {
 		return api_id;
 	}
-	public void setApi_id(int api_id) {
+	public void setApi_id(Integer api_id) {
 		this.api_id = api_id;
 	}
 	public String getParameter() {
@@ -51,5 +66,7 @@ public class parameters {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
+	
+	
+	
 }
