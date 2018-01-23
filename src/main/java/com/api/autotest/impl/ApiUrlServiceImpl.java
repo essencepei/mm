@@ -23,10 +23,22 @@ public class ApiUrlServiceImpl implements IApiUrlService{
 		this.apiUrlInfoMapper = apiUrlInfoMapper;
 	}
 	
+	@Override
 	public List<Suite> loadApi(Map<String, Object> param) {
-		// TODO Auto-generated method stub
 		return apiUrlInfoMapper.queryurl(param);
 	}
 	
+	@Override
+	public void updateSuite(Suite suite) {
+		apiUrlInfoMapper.updateSuite(suite);;
+	}
+	@Override
+	public void addSuite(Suite suite) {
+		apiUrlInfoMapper.addSuite(suite);;
+	}
+	@Override
+	public void delSuite(int id) {
+		apiUrlInfoMapper.delSuite(id);
+	}
 
 }

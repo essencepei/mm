@@ -21,15 +21,15 @@ public class ExcuteSwagger {
 	List<parameters> parameterslist= new ArrayList<>();
 	List<apiVO> apiVO= new ArrayList<>();
 	
-	public static void main(String[] args) throws Exception {
-		List<String> urls = new ArrayList<String>();
-		urls.add("http://cc.beadwallet.com:8060/loansupermarket-app/swagger-ui.html#!");
-		urls.add("http://106.15.126.160:8065/loansupermarket-pay/swagger-ui.html#/");
-		for(String url : urls){
-//			insertSuite(url);
-		    excuteUrl(url);
-		}
-	}
+//	public static void main(String[] args) throws Exception {
+//		List<String> urls = new ArrayList<String>();
+//		urls.add("http://cc.beadwallet.com:8060/loansupermarket-app/swagger-ui.html#!");
+//		urls.add("http://106.15.126.160:8065/loansupermarket-pay/swagger-ui.html#/");
+//		for(String url : urls){
+////			insertSuite(url);
+//		    excuteUrl(url);
+//		}
+//	}
 	
 	public static void excuteUrl(String url){
 		WebDriver driver = DriverFactory.getChromeDriver();

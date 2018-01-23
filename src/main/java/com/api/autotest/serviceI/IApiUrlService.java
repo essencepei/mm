@@ -10,4 +10,10 @@ public interface IApiUrlService {
 
 	List<Suite> loadApi(Map<String, Object> param);
 
+	void updateSuite(Suite suite);
+
+	void addSuite(Suite suite);
+	
+	void delSuite(int id);
+	
 }
