@@ -17,30 +17,31 @@
     <div id="tb1">
 					<a id="btn1" href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="addsuite()">新增</a>
 					<a id="btn2" href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editsuite()">编辑</a>
-					<a id="btn3" href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="javascript:alert('Save')">删除</a>
+					<a id="btn3" href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="delSuite()">删除</a>
 					<a id="btn4" href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="savesuite()">保存</a>
 					<a id="btn5" href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="excuteurl()">excute</a>
 					
-				</div>
-    <div id="content" region="north" style="padding:5px;height:300px">
-    <table id="suiteGrid"class="easyui-datagrid" title="swagger地址" style="width:100%;height:100%"
-					data-options="singleSelect:false,
+	</div>
+    <div id="content" region="north" style="padding:5px;height:500px">
+    	<table id="suiteGrid"class="easyui-datagrid" title="swagger地址" style="width:100%;height:100%"
+				data-options="singleSelect:false,
 					collapsible:true,
 					fitColumns:true,
 					url:'/pro01/urlController/urlData.do',
 					rownumbers:true, 
 					pagination:true,
-					toolbar:'#tb1'
-					">
-							<thead>
-								<tr>
-									<th data-options="field:'ck',checkbox:true"></th>
-									<th data-options="field:'id',width:100">ID</th>
-									<th data-options="field:'suite_url',width:100">swagger地址</th>
-								</tr>
-							</thead>
-				</table>
+					toolbar:'#tb1'	">
+			<thead>
+				<tr>
+					<th data-options="field:'ck',checkbox:true"></th>
+					<th data-options="field:'id',width:50">ID</th>
+					<th data-options="field:'suite_url',width:100">swagger地址</th>
+				</tr>
+			</thead>
+		</table>
     </div>
+    <!-- 彈出層 -->
+    <div id="dialog"></div>
     </body>
     
 </html>

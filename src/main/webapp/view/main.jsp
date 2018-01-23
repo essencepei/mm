@@ -22,7 +22,7 @@
 		</div>
 		
 		<div title="接口测试用例管理" data-options="iconCls:'icon-ok'" style="overflow:auto;padding:10px;">
-			<a href="javascript:void(0);" onclick="openIf('');"><p>页面元素管理</p></a>
+			<a href="javascript:void(0);" onclick="openIf('');"><p>水珠钱包接口测试</p></a>
 		</div>
 		
 		<div title="UI" data-options="iconCls:'icon-ok'" style="overflow:auto;padding:10px;">
