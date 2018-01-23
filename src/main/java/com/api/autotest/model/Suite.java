@@ -1,21 +1,21 @@
 package com.api.autotest.model;
 
 public class Suite {
-	private int id;
+	private Integer id;
 	private String suite_url;
 	
 	public Suite() {
 		super();
 	}
-	public Suite(int id, String suite_url) {
+	public Suite(Integer id, String suite_url) {
 		super();
 		this.id = id;
 		this.suite_url = suite_url;
 	}
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getSuite_url() {
