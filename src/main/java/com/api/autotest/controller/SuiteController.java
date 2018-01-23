@@ -18,15 +18,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.api.autotest.model.Suite;
-import com.api.autotest.serviceI.IApiUrlService;
+import com.api.autotest.serviceI.ISuiteService;
 import com.api.autotest.util.ExcuteSwagger;
 @Controller
-@RequestMapping("/urlController")
-public class UrlController {
-	Logger logger =LoggerFactory.getLogger(UrlController.class);
+@RequestMapping("/SuiteController")
+public class SuiteController {
+	Logger logger =LoggerFactory.getLogger(SuiteController.class);
 	
 	@Autowired
-	IApiUrlService apiUrlService ;
+	ISuiteService apiUrlService ;
 	
 	private String success = "success"; 
 	private String error = "error"; 
@@ -44,14 +44,22 @@ public class UrlController {
 		return apiUrlService.loadApi(param);
 	}
 	
-	@RequestMapping(value = "/addOrUpdateSuite.do" ,method = RequestMethod.POST)
+	@RequestMapping(value = "/updateSuite.do" ,method = RequestMethod.POST)
+	@ResponseBody
+	public String updateSuite(Suite suite){
+		String msg = this.success;
+		System.out.println("suite_url");
+		apiUrlService.updateSuite(suite);;
+		return msg;
+	}
+	
+	@RequestMapping(value = "/addSuite.do" ,method = RequestMethod.POST)
 	@ResponseBody
 	public String addSuite(Suite suite){
 		String msg = this.success;
 		System.out.println("suite_url");
 		apiUrlService.addSuite(suite);
 		return msg;
-		
 	}
 	
 	@RequestMapping(value = "/delSuite.do",method =RequestMethod.POST)

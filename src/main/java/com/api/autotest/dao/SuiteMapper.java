@@ -5,7 +5,7 @@ import java.util.Map;
 
 import com.api.autotest.model.Suite;
 
-public interface ApiUrlMapper {
+public interface SuiteMapper {
 	//查询
 	public List<Suite> queryurl(Map<String,Object> param);
 	public void addSuite(Suite suite);

@@ -6,20 +6,20 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.api.autotest.dao.ApiUrlMapper;
+import com.api.autotest.dao.SuiteMapper;
 import com.api.autotest.model.Suite;
-import com.api.autotest.serviceI.IApiUrlService;
+import com.api.autotest.serviceI.ISuiteService;
 
 @Service("apiUrlService")
-public class ApiUrlServiceImpl implements IApiUrlService{
+public class SuiteServiceImpl implements ISuiteService{
 	
-	private ApiUrlMapper apiUrlInfoMapper;
+	private SuiteMapper apiUrlInfoMapper;
 	
-	public ApiUrlMapper getApiUrlInfoMapper() {
+	public SuiteMapper getApiUrlInfoMapper() {
 		return apiUrlInfoMapper;
 	}
 	@Autowired
-	public void setApiUrlInfoMapper(ApiUrlMapper apiUrlInfoMapper) {
+	public void setApiUrlInfoMapper(SuiteMapper apiUrlInfoMapper) {
 		this.apiUrlInfoMapper = apiUrlInfoMapper;
 	}
 	
