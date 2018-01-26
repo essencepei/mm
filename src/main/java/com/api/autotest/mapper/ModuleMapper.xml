@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.api.autotest.dao.ModuleMapper">
+
+    <select id="queryModule" resultType="Module" >  
+         SELECT * FROM suite 
+           <where>
+         	<if test = "id!='' and id !=null" > and id = #{id}</if>
+         </where>
+    </select>
+    
+    <insert id="addModule">
+    	INSERT INTO module (module_name,suite_id)<!--//这俩对应的是数据库的表字段  -->   
+    	VALUES (#{modulename},#{suite_id})<!-- //这里对应的是要取值的对象的属性 --><!-- //这里对应要插入的值 -->
+    </insert>
+    
+    <update id="updateModule">
+    	update suite set suite_url=#{suite_url} where id=#{id}
+    </update>
+    
+<!--     <select id="querymodule_id" resultType="Module" parameterType="java.lang.String">  
+         SELECT * FROM suite where module_name = #{modulename}
+    </select> -->
+     <select id="querymodule_id" resultType="Module" parameterType="java.lang.String">  
+         SELECT * FROM module 
+           <where>
+         	<if test = "_parameter!='' and _parameter !=null" > and module_name = #{modulename}</if>
+         </where>
+    </select>
+    
+</mapper>
