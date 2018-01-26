@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.api.autotest.model.Suite;
-import com.api.autotest.model.apiVO;
+import com.api.autotest.model.ApiVO;
 
 public interface ISuiteService {
 
@@ -15,5 +15,4 @@ public interface ISuiteService {
 	void addSuite(Suite suite);
 	
 	void delSuite(int id);
-	
 }

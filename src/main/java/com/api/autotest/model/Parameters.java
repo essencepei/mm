@@ -1,6 +1,6 @@
 package com.api.autotest.model;
 
-public class parameters {
+public class Parameters {
 	private Integer id;
 	private Integer api_id;
 	private String parameter;
@@ -9,11 +9,11 @@ public class parameters {
 	private String datatype;
 	private String description;
 	
-	public parameters() {
+	public Parameters() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public parameters(Integer id, Integer api_id, String parameter, String isrequired, String parametertype,
+	public Parameters(Integer id, Integer api_id, String parameter, String isrequired, String parametertype,
 			String datatype, String description) {
 		super();
 		this.id = id;

@@ -100,18 +100,18 @@ function updateSave(){
 	    }
 	});	
 }
-
-
-
 function excuteurl(){
 	var selects = $('#suiteGrid').datagrid('getSelections');
-	var urls ='';
-	for(var i=0;i< selects.length;i++){
-		urls=urls+selects[i].suite_url+',';
-	}
-	
 	if(selects!=null&&selects.length!=0){
-		$.post("/pro01/SuiteController/excuteUrl.do",{url:urls},function(data){
+		var ids = '';
+		for(var i=0;i<selects.length;i++){
+			if(i==i){
+				ids+=selects[i].id;
+			}else{
+				ids+=selects[i].id+',';
+			}
+		}
+		$.post("/pro01/SuiteController/excuteUrl.do",{selects:ids},function(data){
 			if(data=='success'){
 				$.messager.alert('提示','成功!');
 			}
@@ -120,6 +120,26 @@ function excuteurl(){
 		$.messager.alert('提示','请至少选择一条记录!');
 	}
 }
+
+
+
+//function excuteurl(){
+//	var selects = $('#suiteGrid').datagrid('getSelections');
+//	var urls ='';
+//	for(var i=0;i< selects.length;i++){
+//		urls=urls+selects[i].suite_url+',';
+//	}
+//	
+//	if(selects!=null&&selects.length!=0){
+//		$.post("/pro01/SuiteController/excuteUrl.do",{url:urls},function(data){
+//			if(data=='success'){
+//				$.messager.alert('提示','成功!');
+//			}
+//		});
+//	}else{
+//		$.messager.alert('提示','请至少选择一条记录!');
+//	}
+//}
 
 
 

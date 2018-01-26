@@ -1,38 +1,44 @@
 package com.api.autotest.model;
 
-public class module {
+public class Module {
 	private Integer id;
 	private Integer suite_id;
-	private String modelname;
+	private String modulename;
 	
-	public module() {
+	public Module() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public module(Integer id, Integer suite_id, String modelname) {
+
+	public Module(Integer id, Integer suite_id, String modulename) {
 		super();
 		this.id = id;
 		this.suite_id = suite_id;
-		this.modelname = modelname;
+		this.modulename = modulename;
 	}
+
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 	public Integer getSuite_id() {
 		return suite_id;
 	}
+
 	public void setSuite_id(Integer suite_id) {
 		this.suite_id = suite_id;
 	}
-	public String getModelname() {
-		return modelname;
+
+	public String getModulename() {
+		return modulename;
 	}
-	public void setModelname(String modelname) {
-		this.modelname = modelname;
+
+	public void setModulename(String modulename) {
+		this.modulename = modulename;
 	}
-	
 	
 }

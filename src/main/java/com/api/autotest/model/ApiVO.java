@@ -1,16 +1,16 @@
 package com.api.autotest.model;
 
-public class apiVO {
+public class ApiVO {
 	private Integer id;
 	private Integer module_id;
 	private String method; //post、get、delete
 	private String path;
 	
-	public apiVO() {
+	public ApiVO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public apiVO(Integer id, Integer module_id, String method, String path) {
+	public ApiVO(Integer id, Integer module_id, String method, String path) {
 		super();
 		this.id = id;
 		this.module_id = module_id;
