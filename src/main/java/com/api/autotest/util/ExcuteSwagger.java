@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Param;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,7 +14,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
-
 import com.api.autotest.model.ApiVO;
 import com.api.autotest.model.Module;
 import com.api.autotest.model.Parameters;
@@ -30,16 +30,18 @@ public class ExcuteSwagger {
 	
 	@Autowired
 	@Qualifier("apiServiceImpl")
+	
 	public IAPIService apiServiceImpl ;
+	
 	@Autowired
 	public IParamsService paramsService ;
 	
-	Logger logger =LoggerFactory.getLogger(ExcuteSwagger.class);
+	private Logger logger =LoggerFactory.getLogger(ExcuteSwagger.class);
 	
-	List<Suite> suitelist= new ArrayList<>();
-	List<Module> modulelist= new ArrayList<>();
-	List<Parameters> parameterslist= new ArrayList<>();
-	List<ApiVO> apiVO= new ArrayList<>();
+//	List<Suite> suitelist= new ArrayList<>();
+//	List<Module> modulelist= new ArrayList<>();
+//	List<Parameters> parameterslist= new ArrayList<>();
+//	List<ApiVO> apiVO= new ArrayList<>();
 	
 //	public static void main(String[] args) throws Exception {
 //		
@@ -73,7 +75,6 @@ public class ExcuteSwagger {
 		module.setModulename(a.getText());
 //		存module表==============
 		moduleService.addModule(module);
-		
 		return module;
 	}
 	
@@ -86,18 +87,17 @@ public class ExcuteSwagger {
 	public void getContent(WebElement endpoints,Module module){
 		List<WebElement> endpoint = endpoints.findElements(By.className("endpoint"));
 		logger.info("接口个数：：："+endpoint.size());
-		String yoyo = module.getModulename();
-		Module haha = moduleService.querymodule_id(yoyo);
 		Integer module_id = moduleService.querymodule_id(module.getModulename()).getId();
 		for(WebElement point : endpoint){
 			ApiVO api = new ApiVO();
 			api.setModule_id(module_id);
 			WebElement h3 =	point.findElement(By.tagName("h3"));
 			logger.info("接口路徑"+h3.getText());
+//			存method和path
 			getMethodPath(h3,api);
 			WebElement form = point.findElement(By.cssSelector(".content")).findElement(By.tagName("form"));
 //			处理form表单，存parameter
-			excuteForm(form);
+			excuteForm(form,api);
 		}
 	}
 	
@@ -112,7 +112,9 @@ public class ExcuteSwagger {
 		return api;
 	}
 
-	public void excuteForm(WebElement form) {
+	public void excuteForm(WebElement form,ApiVO api) {
+		Integer api_id = apiServiceImpl.queryid(api.getModule_id(),api.getPath(),api.getMethod()).getId();
+		api.setId(api_id);
 		List<Map<String,String>> paramters = new ArrayList<Map<String,String>>();
 		List<WebElement> trs = form.findElements(By.tagName("tr"));
 //		form有没有tr
@@ -121,7 +123,10 @@ public class ExcuteSwagger {
 			System.out.println(trs.size());
 			for(WebElement tr :trs){
 				logger.info("trtrtrtr----------"+tr.getText());
-				paramters.add(ExcuteTd(tr));
+				Parameters params = new Parameters();
+				params.setApi_id(api_id);
+				ExcuteTd(tr,params);
+//				paramters.add(ExcuteTd(tr,params));
 			}
 		}else{
 			Map<String,String> map = new HashMap<String,String>();
@@ -132,12 +137,11 @@ public class ExcuteSwagger {
 			map.put("description", "");
 			System.out.println("parameter:"+map.get("parameter") +"\n"+"isrequired:"+map.get("isrequired") +"\n"
 					+"parametertype:"+map.get("parametertype") +"\n"+"datatype:"+map.get("datatype") +"\n"+"description:"+map.get("description"));
-			paramters.add(map);
+//			paramters.add(map);
 		}
 	}
 
-	private Map<String,String> ExcuteTd(WebElement tr) {
-		Map<String,String> map = new HashMap<String,String>();
+	private void ExcuteTd(WebElement tr,Parameters params) {
 		List<WebElement> tds = tr.findElements(By.tagName("td"));
 //		是否能找到元素
 		try {
@@ -146,21 +150,20 @@ public class ExcuteSwagger {
 			String isrequired = tds.get(1).findElement(By.tagName("input")).getAttribute("placeholder");
 			String parametertype = tds.get(3).getText();
 			String datatype = tds.get(4).findElement(By.tagName("span")).getText();
-			map.put("parameter", parameter);
-			map.put("isrequired", isrequired);
-			map.put("parametertype",parametertype);
-			map.put("datatype", datatype);
-			map.put("description", description);
+			params.setDescription(description);
+			params.setParameter(parameter);
+			params.setIsrequired(isrequired);
+			params.setParametertype(parametertype);
+			params.setDatatype(datatype);
+			
 		} catch (Exception e) {
-			map.put("parameter", "");
-			map.put("isrequired", "");
-			map.put("parametertype","");
-			map.put("datatype", "");
-			map.put("description","");
+			params.setDescription("");
+			params.setParameter("");
+			params.setIsrequired("");
+			params.setParametertype("");
+			params.setDatatype("");
 		}
-		System.out.println("parameter:"+map.get("parameter") +"\n"+"isrequired:"+map.get("isrequired") +"\n"
-				+"parametertype:"+map.get("parametertype") +"\n"+"datatype:"+map.get("datatype") +"\n"+"description:"+map.get("description"));
-		return map;
+		paramsService.addParams(params);
 	}
 	
 }

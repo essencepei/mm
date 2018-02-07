@@ -5,4 +5,9 @@
     	INSERT INTO api (method,path,module_id)<!--//这俩对应的是数据库的表字段  -->   
     	VALUES (#{method},#{path},#{module_id})<!-- //这里对应的是要取值的对象的属性 --><!-- //这里对应要插入的值 -->
     </insert>
+    
+    <select id="queryid" resultType="Api">
+    	SELECT * FROM api WHERE module_id = #{0} AND path = #{1} and method = #{2}
+    </select>
+    
 </mapper>
