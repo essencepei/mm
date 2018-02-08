@@ -31,5 +31,13 @@ public class ApiServiceImpl implements IAPIService {
 		return apiMapper.queryid(module_id,path,method);
 	}
 
+	@Override
+	public ApiVO querybyapivo(ApiVO apivo) {
+		// TODO Auto-generated method stub
+		return apiMapper.querybyapivo(apivo);
+	}
+	
+	
+
 
 }

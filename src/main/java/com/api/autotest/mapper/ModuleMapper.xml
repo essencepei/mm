@@ -28,4 +28,8 @@
          </where>
     </select>
     
+     <select id="queryModuleByParam" resultType="Module">
+    	SELECT * from module WHERE suite_id = #{suite_id} AND module_name = #{modulename}
+    </select>
+    
 </mapper>

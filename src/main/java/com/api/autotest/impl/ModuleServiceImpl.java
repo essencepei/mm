@@ -48,5 +48,18 @@ public class ModuleServiceImpl implements IModuleService{
 		// TODO Auto-generated method stub
 		return moduleMapper.querymodule_id(name);
 	}
+
+	@Override
+	public Module querymodule(Module module) {
+		// TODO Auto-generated method stub
+		return moduleMapper.queryModule(module);
+	}
+
+	@Override
+	public Module queryModuleByParam(Module module) {
+		return moduleMapper.queryModuleByParam(module);
+	}
+	
+	
 	
 }

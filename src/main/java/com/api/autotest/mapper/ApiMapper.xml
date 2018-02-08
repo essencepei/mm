@@ -10,4 +10,7 @@
     	SELECT * FROM api WHERE module_id = #{0} AND path = #{1} and method = #{2}
     </select>
     
+    <select id="querybyapivo" resultType="Api">
+    	SELECT * from api WHERE module_id = #{module_id} AND method = #{method} and path=#{path}
+    </select>
 </mapper>

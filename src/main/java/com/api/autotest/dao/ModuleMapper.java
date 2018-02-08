@@ -13,4 +13,9 @@ public interface ModuleMapper {
 	
 	public Module querymodule_id(String name);
 	
+	public Module queryModule(Module module);
+	
+	public Module queryModuleByParam(Module module);
+	
+	
 }

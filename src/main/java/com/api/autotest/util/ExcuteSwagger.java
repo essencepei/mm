@@ -1,11 +1,9 @@
 package com.api.autotest.util;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import org.apache.ibatis.annotations.Param;
+import java.util.Set;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
+
 import com.api.autotest.model.ApiVO;
 import com.api.autotest.model.Module;
 import com.api.autotest.model.Parameters;
@@ -56,6 +55,22 @@ public class ExcuteSwagger {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+//		關閉另外的window窗口  begin
+		String currentWindow = driver.getWindowHandle();
+		Set<String> handles = driver.getWindowHandles();
+		handles.remove(currentWindow);
+	      if (handles.size() > 0) {
+	          try{
+	          //定位窗口
+	          driver.switchTo().window(handles.iterator().next());
+	          driver.close();
+	          }catch(Exception e){
+	                System.out.println(e.getMessage());
+	               }
+	          }
+//			關閉另外的window窗口  end
+//	      切回最初打開的窗口
+	    driver.switchTo().window(currentWindow);
 		List<WebElement> resources = driver.findElements(By.cssSelector(".resource"));
 		for(WebElement resource : resources){
 			Module ss = getHeading(resource,suite);
@@ -66,7 +81,6 @@ public class ExcuteSwagger {
 		driver.close();
 	}
 	
-	
 	public Module getHeading(WebElement resource,Suite suite){
 		WebElement a = resource.findElement(By.className("heading")).findElement(By.tagName("h2")).findElement(By.tagName("a"));
 		System.out.println("model text:"+a.getText());
@@ -74,7 +88,12 @@ public class ExcuteSwagger {
 		module.setSuite_id(suite.getId());
 		module.setModulename(a.getText());
 //		存module表==============
-		moduleService.addModule(module);
+		moduleService.queryModuleByParam(module);
+		if(moduleService.queryModuleByParam(module)==null){
+			moduleService.addModule(module);
+		}else{
+//			moduleService.updateModule(module);
+		}
 		return module;
 	}
 	
@@ -108,14 +127,15 @@ public class ExcuteSwagger {
 		api.setPath(path);
 		logger.info("method:"+method+"---------"+"path:"+path);
 //		存api表 ====
-		apiServiceImpl.addApi(api);
+		if(apiServiceImpl.querybyapivo(api)==null){
+			apiServiceImpl.addApi(api);
+		}
 		return api;
 	}
 
 	public void excuteForm(WebElement form,ApiVO api) {
 		Integer api_id = apiServiceImpl.queryid(api.getModule_id(),api.getPath(),api.getMethod()).getId();
 		api.setId(api_id);
-		List<Map<String,String>> paramters = new ArrayList<Map<String,String>>();
 		List<WebElement> trs = form.findElements(By.tagName("tr"));
 //		form有没有tr
 		if(trs.size() > 0){
@@ -126,7 +146,6 @@ public class ExcuteSwagger {
 				Parameters params = new Parameters();
 				params.setApi_id(api_id);
 				ExcuteTd(tr,params);
-//				paramters.add(ExcuteTd(tr,params));
 			}
 		}else{
 			Map<String,String> map = new HashMap<String,String>();
@@ -163,7 +182,12 @@ public class ExcuteSwagger {
 			params.setParametertype("");
 			params.setDatatype("");
 		}
-		paramsService.addParams(params);
+//		存接口对应的参数
+		if(paramsService.queryparams(params).size()!=0){
+			paramsService.addParams(params);
+		}else{
+			paramsService.updatePrams(params);
+		}
 	}
 	
 }

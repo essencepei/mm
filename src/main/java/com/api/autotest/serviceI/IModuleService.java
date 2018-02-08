@@ -14,5 +14,9 @@ public interface IModuleService {
 	void delModule(int id);
 	
 	Module querymodule_id(String name);
+	
+	Module querymodule(Module module);
+	
+	Module queryModuleByParam(Module module);
 
 }

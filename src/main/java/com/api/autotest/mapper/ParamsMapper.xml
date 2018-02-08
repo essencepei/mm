@@ -5,4 +5,16 @@
     	INSERT INTO parameter (api_id,parameter,isrequired,parametertype,datatype,description)<!--//这俩对应的是数据库的表字段  -->   
     	VALUES (#{api_id},#{parameter},#{isrequired},#{parametertype},#{datatype},#{description})<!-- //这里对应的是要取值的对象的属性 --><!-- //这里对应要插入的值 -->
     </insert>
+    
+    <select id="queryByParams" resultType="Params">
+    	SELECT * FROM parameter WHERE api_id = #{api_id}
+    </select>
+    
+    <select id="queryparams" resultType="Params">
+    	SELECT * FROM parameter WHERE api_id = #{api_id}
+    </select>
+    
+    <update id="updateParams">
+    	UPDATE parameter SET parameter=#{parameter},isrequired=#{isrequired},parametertype =#{parametertype},datatype= #{datatype},description =#{description} WHERE api_id=#{api_id}
+    </update>
 </mapper>
