@@ -17,8 +17,10 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
            <typeAlias type="com.pjh.model.Case" alias="Case"/>
            <typeAlias type="com.pjh.model.CaseInfo" alias="CaseInfo"/>
            <typeAlias type="com.pjh.model.Action" alias="Action"/>
-           <typeAlias type="com.api.autotest.model.apiVO" alias="Api"/>       
-           <typeAlias type="com.api.autotest.model.Suite" alias="Suite"/>                
+           <typeAlias type="com.api.autotest.model.Suite" alias="Suite"/> 
+           <typeAlias type="com.api.autotest.model.Module" alias="Module"/>
+           <typeAlias type="com.api.autotest.model.ApiVO" alias="Api"/>       
+           <typeAlias type="com.api.autotest.model.Parameters" alias="Params"/> 
     </typeAliases>    
     <plugins>  
         <!-- com.github.pagehelper为PageHelper类所在包名 -->  
