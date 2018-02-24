@@ -1,5 +1,6 @@
 package com.api.autotest.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ApiVO {
@@ -7,8 +8,21 @@ public class ApiVO {
 	private Integer module_id;
 	private String method; //post、get、delete
 	private String path;
+//	private String response;
+//	private String transfer;
+//	private String CheckStr;
+//	private Boolean result=true;
+//	private String name;
 	private List<Parameters> paramlist;
+//	private ArrayList<String> checkList=new ArrayList();
 	
+//    public ArrayList<String> getCheckList() {
+//        return checkList;
+//    }
+//
+//    public void setCheckList(String checkStr) {
+//        this.checkList.add(checkStr);
+//    }
 	public List<Parameters> getParamlist() {
 		return paramlist;
 	}
@@ -54,6 +68,7 @@ public class ApiVO {
 	public void setPath(String path) {
 		this.path = path;
 	}
+
 	
 	
 
