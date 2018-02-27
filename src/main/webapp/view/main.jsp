@@ -18,11 +18,11 @@
     	<div class="easyui-accordion" >
 		<div title="接口" data-options="iconCls:'icon-ok'" style="overflow:auto;padding:10px;">
 			<a href="javascript:void(0);" onclick="openIf('/SuiteController/urlList.do');"><p>接口地址管理</p></a>
-			<a href="javascript:void(0);" onclick="openIf('/SuiteController/urlList.do');"><p>查看接口</p></a>
+			<a href="javascript:void(0);" onclick="openIf('');"><p>查看接口</p></a>
 		</div>
 		
 		<div title="接口测试用例管理" data-options="iconCls:'icon-ok'" style="overflow:auto;padding:10px;">
-			<a href="javascript:void(0);" onclick="openIf('');"><p>水珠钱包接口测试</p></a>
+			<a href="javascript:void(0);" onclick="openIf('/ApiCaseController/ApiCaseList.do');"><p>水珠钱包接口测试</p></a>
 		</div>
 		
 		<div title="UI" data-options="iconCls:'icon-ok'" style="overflow:auto;padding:10px;">

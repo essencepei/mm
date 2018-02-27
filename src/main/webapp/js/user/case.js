@@ -7,7 +7,12 @@ function selectRow(rowIndex, rowData){
 		url:"/pro01/caseController/CaseInfoByCaseId.do"
 	});
 }
-
+$('#cc').combobox({
+	url: "/pro01/ApiCaseController/Urllist.do",
+	required: true,
+	valueField: 'id',
+	textField: 'text'
+});
 
 //选中后逻辑,选中后添加到测试用例集合
 function onCheck(rowIndex,rowData){
